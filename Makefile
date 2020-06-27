@@ -75,3 +75,25 @@ upload_ext:
 dev_tools:
 	pip install twine bumpversion yapf pylint pyYaml
 
+# Docker commands
+
+DOCKER_CADQUERY_RELEASE=0.9.2-rc3
+DOCKER_IMAGE=bernhard-42/jupyter-cadquery:${DOCKER_CADQUERY_RELEASE}
+DOCKER_WORKDIR=examples
+DOCKER_PORT=8888
+DOCKER_NAME=jupyter-cadquery
+DOCKER_CMD=
+docker_build:
+	docker build --rm -t ${DOCKER_IMAGE} -f docker/Dockerfile .
+
+docker_run:
+	docker run -it --rm --name ${DOCKER_NAME} -v ${DOCKER_WORKDIR}:/home/cq/workdir -p ${DOCKER_PORT}:8888 ${DOCKER_IMAGE} ${DOCKER_CMD}
+
+docker_stop:
+	docker stop ${DOCKER_NAME}
+
+docker_rm:
+	docker rm ${DOCKER_NAME}
+
+docker_exec:
+	docker exec -it ${DOCKER_NAME} ${DOCKER_CMD}

@@ -106,7 +106,7 @@ show(a1, axes=True, grid=True, ortho=True, axes0=True)
     ```bash
     cd docker
     IMAGE=bernhard-42/jupyter-cadquery:0.9.2-rc3
-    docker build -t $IMAGE .
+    docker build -t $IMAGE -f docker/Dockerfile .
     ```
 
 - Run the docker container
