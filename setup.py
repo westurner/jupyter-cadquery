@@ -67,8 +67,8 @@ class NPM(Command):
     node_modules = os.path.join(node_root, 'node_modules')
 
     targets = [
-        os.path.join(here, 'jupyter_cadquery', 'static', 'extension.js'),
-        os.path.join(here, 'jupyter_cadquery', 'static', 'index.js')
+        os.path.join(here, 'js', 'lib', 'extension.js'),
+        os.path.join(here, 'js', 'lib', 'index.js')
     ]
 
     def initialize_options(self):
@@ -129,9 +129,9 @@ setup_args = {
     'include_package_data': True,
     'data_files': [
         ('share/jupyter/nbextensions/jupyter_cadquery', [
-            'jupyter_cadquery/static/extension.js',
-            'jupyter_cadquery/static/index.js',
-            'jupyter_cadquery/static/index.js.map',
+            'js/lib/extension.js',
+            'js/lib/index.js',
+            # 'js/lib/index.js.map',
         ] + glob('jupyter_cadquery/icons/*.png'),),
         ('etc/jupyter/nbconfig/notebook.d' ,['jupyter_cadquery.json'])
     ],
